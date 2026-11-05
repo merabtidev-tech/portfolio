@@ -327,7 +327,7 @@
     .menu-links a {
       display: flex; align-items: baseline; gap: 1rem;
       font-family: var(--font-display); text-transform: uppercase; letter-spacing: -.01em;
-      font-size: min(14vw, 9.4vh); line-height: 1;
+      font-size: min(13vw, 8.2vh); line-height: 1;
       padding: .06em 0;
       transform: translateY(110%); transition: transform .8s var(--ease-out);
     }
@@ -386,6 +386,7 @@
     }
     .sec-label::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px rgba(16,24,19,.25); }
     .sec-label span { opacity: .6; }
+    [data-bg="light"] .sec-label::before { background: var(--ink); box-shadow: none; }
 
     .title {
       font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
@@ -414,7 +415,7 @@
     .hero-sub { font-size: clamp(1rem, .9rem + .4vw, 1.25rem); font-weight: 500; line-height: 1.35; max-width: 26ch; }
     .hero-focus { margin-top: .4rem; max-width: 34ch; font-size: .95rem; line-height: 1.45; opacity: .7; }
     .hero-end { justify-self: end; display: grid; justify-items: end; gap: 1rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: flex-end; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.2rem; }
     .hero-actions .btn svg { width: 16px; height: 16px; }
     [hidden] { display: none !important; }
     .hero-loc { text-align: right; line-height: 1.7; }
@@ -508,13 +509,6 @@
     .about-side { grid-column: 1 / span 4; margin-top: clamp(3rem, 6vw, 6rem); align-self: start; display: grid; gap: 2rem; }
     .about-photo { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--bg-dark); max-width: 360px; }
     .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .photo-placeholder {
-      position: absolute; inset: 0; display: grid; place-items: center; color: var(--accent);
-      background:
-        linear-gradient(rgba(212,255,58,.08) 1px, transparent 1px) 0 0 / 28px 28px,
-        linear-gradient(90deg, rgba(212,255,58,.08) 1px, transparent 1px) 0 0 / 28px 28px,
-        var(--bg-dark);
-    }
     .about-facts { align-self: start; }
     .about-facts li { display: grid; gap: .2rem; padding: 1rem 0; border-top: 1px solid var(--hair); }
     .about-facts li:last-child { border-bottom: 1px solid var(--hair); }
@@ -528,7 +522,13 @@
       font-size: clamp(2.4rem, 6.4vw, 7rem); line-height: .95; letter-spacing: -.01em;
     }
     .pullquote .q { color: var(--muted); }
-    .hl { background: linear-gradient(var(--accent), var(--accent)) 0 88% / 100% 32% no-repeat; }
+    /* Highlight: dark chip with lime text (lime alone is invisible on the light background) */
+    .hl {
+      color: var(--accent); padding: 0 .12em;
+      /* band sized to the capital letters so it never covers the lines above/below */
+      background: linear-gradient(var(--ink), var(--ink)) 0 50% / 100% 60% no-repeat;
+      -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    }
     .pullquote cite { display: block; margin-top: 2rem; font-family: var(--font-mono); font-size: var(--fs-small); font-style: normal; letter-spacing: .06em; opacity: .6; }
 
     /* =====================================================================
@@ -662,11 +662,10 @@
     }
     .lang-row:last-child { border-bottom: 1px solid var(--hair); }
     .lang-row h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(2rem, 4.5vw, 4.2rem); line-height: 1; }
-    .lang-bar { grid-column: 1 / -1; height: 4px; border-radius: 4px; background: rgba(16, 24, 19, .1); overflow: hidden; }
+    .lang-bar { grid-column: 1 / -1; height: 6px; border-radius: 4px; background: rgba(16, 24, 19, .1); overflow: hidden; }
     html:not(.js) .lang-bar { background: rgba(127, 133, 125, .25); }
     .lang-bar i {
-      display: block; height: 100%; border-radius: 4px; background: var(--accent);
-      box-shadow: inset 0 0 0 1px rgba(16, 24, 19, .25);
+      display: block; height: 100%; border-radius: 4px; background: var(--ink);
       transform-origin: 0 50%; transform: scaleX(var(--lvl, 1));
     }
     html.js .lang-bar i { transform: scaleX(0); }
@@ -780,7 +779,7 @@
       .hero-bottom { grid-template-columns: 1fr; justify-items: start; }
       .tagline { text-align: left; }
       .hero-end { justify-self: start; justify-items: start; }
-      .hero-actions { justify-content: flex-start; }
+      .hero-line--2 .split { -webkit-text-stroke-width: 2.5px; }
       .about-side { grid-column: 1 / -1; order: 3; }
       .about-photo { max-width: 280px; }
       .learn-row { grid-template-columns: auto 1fr; }
@@ -862,11 +861,12 @@
     <ul class="menu-links">
       <li><a href="#about" style="--i:0"><span class="num">01</span><span class="roll"><span class="roll-inner" data-text="About">About</span></span></a></li>
       <li><a href="#skills" style="--i:1"><span class="num">02</span><span class="roll"><span class="roll-inner" data-text="Stack">Stack</span></span></a></li>
-      <li><a href="#work" style="--i:2"><span class="num">03</span><span class="roll"><span class="roll-inner" data-text="Work">Work</span></span></a></li>
-      <li><a href="#journey" style="--i:3"><span class="num">04</span><span class="roll"><span class="roll-inner" data-text="Journey">Journey</span></span></a></li>
-      <li><a href="#education" style="--i:4"><span class="num">05</span><span class="roll"><span class="roll-inner" data-text="Education">Education</span></span></a></li>
-      <li><a href="#languages" style="--i:5"><span class="num">06</span><span class="roll"><span class="roll-inner" data-text="Languages">Languages</span></span></a></li>
-      <li><a href="#contact" style="--i:6"><span class="num">07</span><span class="roll"><span class="roll-inner" data-text="Contact">Contact</span></span></a></li>
+      <li><a href="#learning" style="--i:2"><span class="num">03</span><span class="roll"><span class="roll-inner" data-text="Learning">Learning</span></span></a></li>
+      <li><a href="#work" style="--i:3"><span class="num">04</span><span class="roll"><span class="roll-inner" data-text="Work">Work</span></span></a></li>
+      <li><a href="#journey" style="--i:4"><span class="num">05</span><span class="roll"><span class="roll-inner" data-text="Journey">Journey</span></span></a></li>
+      <li><a href="#education" style="--i:5"><span class="num">06</span><span class="roll"><span class="roll-inner" data-text="Education">Education</span></span></a></li>
+      <li><a href="#languages" style="--i:6"><span class="num">07</span><span class="roll"><span class="roll-inner" data-text="Languages">Languages</span></span></a></li>
+      <li><a href="#contact" style="--i:7"><span class="num">08</span><span class="roll"><span class="roll-inner" data-text="Contact">Contact</span></span></a></li>
     </ul>
     <div class="menu-foot">
       <div>
@@ -897,6 +897,19 @@
         <div class="hero-intro" data-hero-fade>
           <p class="hero-sub">Computer Science Student &amp; Developer</p>
           <p class="hero-focus">Focused on web development and software quality &amp; security.</p>
+        <div class="hero-actions">
+          <!-- GitHub URL is set once in LINKS.github (top of the script). Hidden while empty. -->
+          <a href="#" class="btn btn--ghost btn--sm" data-link="github" target="_blank" rel="noopener" data-cursor="Open" data-magnetic hidden>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.91c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span class="roll"><span class="roll-inner" data-text="GitHub">GitHub</span></span>
+          </a>
+          <!-- Always visible, so the hero has a call to action even before the links/CV exist -->
+          <a href="#contact" class="btn btn--accent btn--sm" data-cursor="Open" data-magnetic>
+            <span class="roll"><span class="roll-inner" data-text="Contact me">Contact me</span></span>
+          </a>
+          <a href="cv.pdf" class="btn btn--ghost btn--sm" download data-cursor="Open" data-magnetic>
+            <span class="roll"><span class="roll-inner" data-text="Download CV">Download CV</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+          </a>
+        </div>
         </div>
         <p class="hero-loc mono" data-hero-fade>
           Béchar, Algeria<br />
@@ -923,15 +936,6 @@
         </a>
         <div class="hero-end" data-hero-fade>
           <p class="tagline">Think. Build. Improve. Repeat.</p>
-          <div class="hero-actions">
-            <!-- GitHub URL is set once in LINKS.github (top of the script). Hidden while empty. -->
-            <a href="#" class="btn btn--accent btn--sm" data-link="github" target="_blank" rel="noopener" data-cursor="Open" data-magnetic hidden>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.91c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span class="roll"><span class="roll-inner" data-text="GitHub">GitHub</span></span>
-            </a>
-            <a href="cv.pdf" class="btn btn--ghost btn--sm" download data-cursor="Open" data-magnetic>
-              <span class="roll"><span class="roll-inner" data-text="Download CV">Download CV</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
-            </a>
-          </div>
         </div>
       </div>
 
@@ -958,12 +962,11 @@
 
         <div class="about-side">
         <!--
-          PHOTO SLOT: put a portrait named photo.jpg next to index.html, then replace the
-          <div class="photo-placeholder"> below with:
-          <img src="photo.jpg" alt="Portrait of Yasser Merabti" width="800" height="1000" loading="lazy">
+          PHOTO: put a portrait named photo.jpg (4:5, e.g. 800x1000) next to index.html.
+          It appears automatically; while the file is missing, this slot removes itself.
         -->
         <figure class="about-photo" data-reveal>
-          <div class="photo-placeholder" role="img" aria-label="Photo placeholder"><span class="mono">Photo</span></div>
+          <img src="photo.jpg" alt="Portrait of Yasser Merabti" width="800" height="1000" decoding="async" />
         </figure>
         <ul class="about-facts" data-reveal>
           <li><span class="mono">University</span><strong>Tahri Mohamed University of Béchar</strong></li>
@@ -974,10 +977,10 @@
         </div>
 
         <div class="about-text prose">
-          <p data-words>I'm Yasser Merabti, a Computer Science student at Tahri Mohamed University of Béchar, currently in my second year.</p>
-          <p data-words>I build web projects and enjoy digging into how software works: how it's structured, where it breaks, and how to make it more reliable and secure.</p>
-          <p data-words>My main focus is web development and software quality &amp; security. I'm also exploring artificial intelligence and computer networks.</p>
-          <p data-words>Away from the screen, you'll usually find me playing chess or football: both taught me patience, strategy and teamwork.</p>
+          <p>I'm Yasser Merabti, a Computer Science student at Tahri Mohamed University of Béchar, currently in my second year.</p>
+          <p>I build web projects and enjoy digging into how software works: how it's structured, where it breaks, and how to make it more reliable and secure.</p>
+          <p>My main focus is web development and software quality &amp; security. I'm also exploring artificial intelligence and computer networks.</p>
+          <p>Away from the screen, you'll usually find me playing chess or football: both taught me patience, strategy and teamwork.</p>
         </div>
 
         <blockquote class="pullquote">
@@ -1047,7 +1050,7 @@
     <!-- ============================== 3b) NOW LEARNING ============================== -->
     <section class="section learning" id="learning" data-panel data-bg="dark">
       <div class="learning-head">
-        <p class="sec-label">02b <span>— Currently learning</span></p>
+        <p class="sec-label">03 <span>— Currently learning</span></p>
         <h2 class="title"><span class="line"><span class="line-inner">Now</span></span> <span class="line"><span class="line-inner">Learning</span></span></h2>
       </div>
       <ul class="learn-list">
@@ -1076,7 +1079,7 @@
     <section class="section work" id="work" data-panel data-bg="light">
       <div class="work-track">
         <div class="work-intro">
-          <p class="sec-label">03 <span>— Projects</span></p>
+          <p class="sec-label">04 <span>— Projects</span></p>
           <h2 class="title"><span class="line"><span class="line-inner">Selected</span></span> <span class="line"><span class="line-inner">Work</span></span></h2>
           <p class="lead" data-reveal>Short case studies: the problem, what I built, the tech, and what I learned along the way.</p>
           <p class="work-hint mono" aria-hidden="true">Keep scrolling
@@ -1104,7 +1107,7 @@
     <section class="section journey" id="journey" data-panel data-bg="dark">
       <div class="journey-head">
         <div>
-          <p class="sec-label">04 <span>— Experience</span></p>
+          <p class="sec-label">05 <span>— Experience</span></p>
           <h2 class="title"><span class="line"><span class="line-inner">The</span></span> <span class="line"><span class="line-inner">Journey</span></span></h2>
         </div>
         <p class="lead dim" data-reveal>Most recent first — the training and self-directed learning shaping how I build.</p>
@@ -1150,7 +1153,7 @@
 
     <!-- ============================== 6) EDUCATION ============================== -->
     <section class="section education" id="education" data-panel data-bg="light">
-      <p class="sec-label">05 <span>— Education &amp; certifications</span></p>
+      <p class="sec-label">06 <span>— Education &amp; certifications</span></p>
       <h2 class="title" aria-label="Education"><span class="line"><span class="line-inner">Edu</span></span> <span class="line"><span class="line-inner">cation</span></span></h2>
 
       <ul class="edu-list">
@@ -1181,7 +1184,7 @@
     <!-- ============================== 7b) LANGUAGES ============================== -->
     <!-- Levels: change the text and --lvl (0–1, bar length only — never shown as a number). -->
     <section class="section languages" id="languages" data-panel data-bg="light">
-      <p class="sec-label">06 <span>— Languages</span></p>
+      <p class="sec-label">07 <span>— Languages</span></p>
       <h2 class="title" aria-label="Languages"><span class="line"><span class="line-inner">Lan</span></span> <span class="line"><span class="line-inner">guages</span></span></h2>
       <ul class="lang-list">
         <li class="lang-row" data-reveal>
@@ -1216,7 +1219,7 @@
           </div>
         </div>
       </div>
-      <p class="sec-label">07 <span>— Contact</span></p>
+      <p class="sec-label">08 <span>— Contact</span></p>
       <h2 class="title"><span class="line"><span class="line-inner">Let's</span></span> <span class="line"><span class="line-inner">Talk</span></span></h2>
 
       <p class="contact-headline" data-reveal>Let's build something <em>meaningful.</em></p>
@@ -1364,6 +1367,34 @@
     });
 
     /* =====================================================================
+       PHOTO — the About photo slot removes itself while photo.jpg is missing
+       ===================================================================== */
+    const photo = $('.about-photo img');
+    if (photo) {
+      const dropPhoto = () => {
+        const fig = photo.closest('figure');
+        if (fig) fig.remove();
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      };
+      if (photo.complete && photo.naturalWidth === 0) dropPhoto();
+      else photo.addEventListener('error', dropPhoto, { once: true });
+    }
+
+    /* =====================================================================
+       CV BUTTONS — hidden if cv.pdf is missing (checked over http/https only;
+       when opened as a local file the buttons simply stay visible)
+       ===================================================================== */
+    if (location.protocol.startsWith('http') && window.fetch) {
+      fetch('cv.pdf', { method: 'HEAD', cache: 'no-store' })
+        .then((res) => {
+          if (res.ok) return;
+          $$('a[href="cv.pdf"]').forEach((a) => { (a.closest('.mag') || a).hidden = true; });
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+        })
+        .catch(() => { /* offline: leave the buttons */ });
+    }
+
+    /* =====================================================================
        PROJECTS (rendered from the PROJECTS array)
        ===================================================================== */
     const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1424,7 +1455,7 @@
              <h3>See everything on GitHub</h3>
              <span class="more-arrow" aria-hidden="true">${ARROW}</span>
            </a>`
-        : `<article class="card card--more" data-reveal><p class="mono">Everything else</p><h3>More on GitHub soon</h3></article>`;
+        : ''; // no GitHub link yet: no card (avoids an empty "coming soon" card)
     }
 
     const cardsHost = $('#work-cards');
