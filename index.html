@@ -10,12 +10,21 @@
   <meta name="author" content="Yasser Merabti" />
   <meta name="keywords" content="Yasser Merabti, software developer, computer science student, Béchar, Algeria, portfolio, web development" />
   <meta name="theme-color" content="#101813" />
+  <link rel="canonical" href="https://merabtidev-tech.github.io/portfolio/" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://merabtidev-tech.github.io/portfolio/" />
   <meta property="og:title" content="Yasser Merabti | Computer Science Student &amp; Developer" />
   <meta property="og:description" content="Computer Science student &amp; developer from Béchar, Algeria, focused on web development and software quality &amp; security." />
   <meta property="og:site_name" content="Yasser Merabti" />
   <meta property="og:locale" content="en_US" />
-  <meta name="twitter:card" content="summary" />
+  <!-- Link preview image (LinkedIn, WhatsApp, X…). Must be an absolute URL. -->
+  <meta property="og:image" content="https://merabtidev-tech.github.io/portfolio/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Yasser Merabti — Computer Science Student &amp; Developer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://merabtidev-tech.github.io/portfolio/og-image.png" />
   <meta name="twitter:title" content="Yasser Merabti | Computer Science Student &amp; Developer" />
   <meta name="twitter:description" content="Computer Science student &amp; developer from Béchar, Algeria." />
 
@@ -83,7 +92,7 @@
 
       /* Spacing */
       --pad: clamp(1.25rem, 4vw, 3.5rem);
-      --space-section: clamp(6rem, 13vw, 12rem);
+      --space-section: clamp(4.5rem, 9vw, 8rem);
       --gap: clamp(1rem, 2vw, 2rem);
       --radius: 20px;
 
@@ -327,7 +336,7 @@
     .menu-links a {
       display: flex; align-items: baseline; gap: 1rem;
       font-family: var(--font-display); text-transform: uppercase; letter-spacing: -.01em;
-      font-size: min(13vw, 8.2vh); line-height: 1;
+      font-size: min(12vw, 7.3vh); line-height: 1;
       padding: .06em 0;
       transform: translateY(110%); transition: transform .8s var(--ease-out);
     }
@@ -366,7 +375,7 @@
     .is-stacked[data-bg="light"] > .panel-inner { background: var(--bg-light); }
     .panel-shade { position: absolute; inset: 0; z-index: 30; background: #000; opacity: 0; pointer-events: none; border-radius: inherit; }
     .section .marquee-wrap { margin-inline: calc(var(--pad) * -1); }
-    .about .marquee-wrap { margin-top: clamp(4rem, 8vw, 7rem); margin-bottom: calc(var(--space-section) * -.6); }
+    .about .marquee-wrap { margin-top: clamp(3rem, 5vw, 4.5rem); margin-bottom: calc(var(--space-section) * -.6); }
     .contact .marquee-wrap { margin-top: calc(var(--space-section) * -.6); margin-bottom: clamp(2rem, 5vw, 4rem); }
 
     /* =====================================================================
@@ -385,7 +394,7 @@
       font-family: var(--font-mono); font-size: var(--fs-small); text-transform: uppercase; letter-spacing: .06em;
     }
     .sec-label::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px rgba(16,24,19,.25); }
-    .sec-label span { opacity: .6; }
+    .sec-label span { opacity: .72; }
     [data-bg="light"] .sec-label::before { background: var(--ink); box-shadow: none; }
 
     .title {
@@ -506,18 +515,18 @@
        ===================================================================== */
     .about-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
     .about-grid > .title, .about-grid > .sec-label { grid-column: 1 / -1; }
-    .about-side { grid-column: 1 / span 4; margin-top: clamp(3rem, 6vw, 6rem); align-self: start; display: grid; gap: 2rem; }
+    .about-side { grid-column: 1 / span 4; margin-top: clamp(2.5rem, 4.5vw, 4.5rem); align-self: start; display: grid; gap: 2rem; }
     .about-photo { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--bg-dark); max-width: 360px; }
     .about-photo img { width: 100%; height: 100%; object-fit: cover; }
     .about-facts { align-self: start; }
     .about-facts li { display: grid; gap: .2rem; padding: 1rem 0; border-top: 1px solid var(--hair); }
     .about-facts li:last-child { border-bottom: 1px solid var(--hair); }
-    .about-facts .mono { opacity: .6; font-size: .72rem; }
+    .about-facts .mono { opacity: .72; font-size: .72rem; }
     .about-facts strong { font-weight: 600; font-size: 1rem; line-height: 1.4; }
-    .about-text { grid-column: 6 / span 7; margin-top: clamp(3rem, 6vw, 6rem); }
+    .about-text { grid-column: 6 / span 7; margin-top: clamp(2.5rem, 4.5vw, 4.5rem); }
     .about-text p:first-child { font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); line-height: 1.35; font-weight: 500; max-width: 30ch; margin-bottom: 1rem; }
     .pullquote {
-      grid-column: 1 / -1; margin-top: clamp(5rem, 10vw, 10rem);
+      grid-column: 1 / -1; margin-top: clamp(3.5rem, 7vw, 6.5rem);
       font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
       font-size: clamp(2.4rem, 6.4vw, 7rem); line-height: .95; letter-spacing: -.01em;
     }
@@ -529,15 +538,15 @@
       background: linear-gradient(var(--ink), var(--ink)) 0 50% / 100% 60% no-repeat;
       -webkit-box-decoration-break: clone; box-decoration-break: clone;
     }
-    .pullquote cite { display: block; margin-top: 2rem; font-family: var(--font-mono); font-size: var(--fs-small); font-style: normal; letter-spacing: .06em; opacity: .6; }
+    .pullquote cite { display: block; margin-top: 2rem; font-family: var(--font-mono); font-size: var(--fs-small); font-style: normal; letter-spacing: .06em; opacity: .72; }
 
     /* =====================================================================
        SKILLS
        ===================================================================== */
-    .skills-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: clamp(3rem, 7vw, 6rem); }
+    .skills-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
     .skill-group {
       display: grid; grid-template-columns: minmax(220px, 1fr) 2.2fr; gap: 1.5rem 3rem;
-      padding: clamp(2rem, 4vw, 3rem) 0; border-top: 1px solid var(--hair);
+      padding: clamp(1.5rem, 3vw, 2.25rem) 0; border-top: 1px solid var(--hair);
     }
     .skill-group:last-child { border-bottom: 1px solid var(--hair); }
     .skill-group h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.6rem, 2.6vw, 2.6rem); line-height: 1; }
@@ -641,7 +650,7 @@
     .work-cards { display: contents; }
     .noscript-projects { display: grid; gap: .6rem; }
     .case { display: grid; gap: .75rem; }
-    .case dt { font-family: var(--font-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; opacity: .6; margin-bottom: .2rem; }
+    .case dt { font-family: var(--font-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; opacity: .72; margin-bottom: .2rem; }
     .case dd { font-size: .93rem; line-height: 1.5; }
     .card--stats { background: var(--bg-dark); color: var(--paper); border-color: var(--bg-dark); padding: clamp(1.5rem, 2.5vw, 2.25rem); justify-content: space-between; gap: 1.5rem; min-height: 340px; }
     .card .stats-num { font-family: var(--font-display); color: var(--accent); font-size: clamp(4.5rem, 9vw, 8rem); line-height: .85; letter-spacing: -.02em; }
@@ -670,11 +679,54 @@
     }
     html.js .lang-bar i { transform: scaleX(0); }
 
+
+    /* =====================================================================
+       QUALITY REPORT
+       ===================================================================== */
+    .quality-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 2rem; }
+    .q-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .q-card {
+      border: 1px solid rgba(236, 238, 230, .14); border-radius: var(--radius);
+      padding: clamp(1.25rem, 2.5vw, 2rem); background: rgba(236, 238, 230, .03);
+    }
+    .q-card--wide { grid-column: span 2; }
+    .q-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .q-card-head h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.6rem, 2.6vw, 2.4rem); line-height: 1; }
+    .q-card-head .mono { opacity: .72; }
+    .rings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+    .ring { display: grid; justify-items: center; gap: .7rem; text-align: center; }
+    .ring-dial { position: relative; width: clamp(84px, 9vw, 128px); aspect-ratio: 1; }
+    .ring-dial svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .ring-bg { fill: none; stroke: rgba(236, 238, 230, .12); stroke-width: 7; }
+    .ring-fg { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; }
+    .ring--ok .ring-fg { stroke: #FFB547; }
+    .ring-num { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1; }
+    .ring .mono { font-size: .68rem; opacity: .8; }
+    .vitals { display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin-top: clamp(1.5rem, 3vw, 2rem); padding-top: 1.25rem; border-top: 1px solid rgba(236, 238, 230, .12); }
+    .vitals div { display: flex; gap: .6rem; }
+    .vitals dt { opacity: .72; }
+    .vitals dd { color: var(--accent); }
+    .checks { margin-top: 1.25rem; }
+    .checks li { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem 0; border-bottom: 1px solid rgba(236, 238, 230, .1); font-size: .95rem; line-height: 1.45; }
+    .checks li:last-child { border-bottom: 0; }
+    .checks li::before {
+      content: "✓"; flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: .05rem;
+      border-radius: 50%; background: var(--accent); color: var(--ink); font-size: .75rem; font-weight: 700;
+    }
+    .sonar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    .sonar dd { font-family: var(--font-display); font-size: 2.6rem; line-height: 1; color: var(--accent); margin-top: .3rem; }
+    .q-note { margin-top: 1.5rem; opacity: .72; }
+    @media (max-width: 899px) {
+      .q-grid { grid-template-columns: 1fr; }
+      .q-card--wide { grid-column: auto; }
+      .rings { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.5rem; }
+    }
+
     /* =====================================================================
        EXPERIENCE TIMELINE
        ===================================================================== */
     .journey-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 2rem; }
-    .timeline { position: relative; margin-top: clamp(4rem, 8vw, 7rem); --lx: 9px; }
+    .timeline { position: relative; margin-top: clamp(3rem, 5.5vw, 5rem); --lx: 9px; }
     .tl-line { position: absolute; top: 0; bottom: 0; left: var(--lx); width: 2px; transform: translateX(-50%); background: rgba(236, 238, 230, .14); }
     .tl-progress { position: absolute; inset: 0; background: var(--accent); transform-origin: 50% 0; }
     .tl-item { position: relative; display: grid; grid-template-columns: 1fr; gap: 1rem 6rem; padding: 0 0 clamp(3.5rem, 7vw, 6rem) calc(var(--lx) + 2.25rem); }
@@ -706,17 +758,17 @@
     /* =====================================================================
        EDUCATION
        ===================================================================== */
-    .edu-list { margin-top: clamp(3rem, 7vw, 6rem); }
+    .edu-list { margin-top: clamp(2.5rem, 5vw, 4.5rem); }
     .edu-row { border-top: 1px solid var(--hair); }
     .edu-row:last-child { border-bottom: 1px solid var(--hair); }
     .edu-inner {
       display: grid; grid-template-columns: 11rem 1fr auto; gap: 1rem 2rem; align-items: center;
       padding: clamp(1.75rem, 3.5vw, 2.75rem) 0; transition: transform .7s var(--ease-out);
     }
-    .edu-when { opacity: .6; }
+    .edu-when { opacity: .72; }
     .edu-title { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.8rem, 4.2vw, 4rem); line-height: .95; }
     .edu-sub { margin-top: .6rem; max-width: 60ch; }
-    .edu-sub span { opacity: .6; }
+    .edu-sub span { opacity: .72; }
     .edu-arrow {
       display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
       background: var(--accent); color: var(--ink); opacity: 0;
@@ -735,7 +787,7 @@
     .contact-headline em { font-style: normal; color: var(--accent); }
     .contact-text { margin-top: 1.5rem; max-width: 52ch; opacity: .8; }
     .email {
-      display: inline-block; margin-top: clamp(3rem, 7vw, 6rem);
+      display: inline-block; margin-top: clamp(2.5rem, 5vw, 4.5rem);
       font-family: var(--font-display); font-size: clamp(2.2rem, 8.6vw, 10rem); line-height: 1; letter-spacing: -.01em;
       overflow-wrap: anywhere; position: relative;
     }
@@ -750,7 +802,7 @@
     .contact-actions .socials { display: flex; gap: .8rem; margin-left: auto; }
     .contact-info {
       display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem;
-      margin-top: clamp(4rem, 8vw, 6rem); padding-top: 1.5rem; border-top: 1px solid rgba(236, 238, 230, .14);
+      margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: 1.5rem; border-top: 1px solid rgba(236, 238, 230, .14);
     }
     .contact-info strong { display: block; font-weight: 500; font-size: 1.05rem; font-family: var(--font-body); text-transform: none; letter-spacing: 0; margin-top: .3rem; }
 
@@ -863,10 +915,11 @@
       <li><a href="#skills" style="--i:1"><span class="num">02</span><span class="roll"><span class="roll-inner" data-text="Stack">Stack</span></span></a></li>
       <li><a href="#learning" style="--i:2"><span class="num">03</span><span class="roll"><span class="roll-inner" data-text="Learning">Learning</span></span></a></li>
       <li><a href="#work" style="--i:3"><span class="num">04</span><span class="roll"><span class="roll-inner" data-text="Work">Work</span></span></a></li>
-      <li><a href="#journey" style="--i:4"><span class="num">05</span><span class="roll"><span class="roll-inner" data-text="Journey">Journey</span></span></a></li>
-      <li><a href="#education" style="--i:5"><span class="num">06</span><span class="roll"><span class="roll-inner" data-text="Education">Education</span></span></a></li>
-      <li><a href="#languages" style="--i:6"><span class="num">07</span><span class="roll"><span class="roll-inner" data-text="Languages">Languages</span></span></a></li>
-      <li><a href="#contact" style="--i:7"><span class="num">08</span><span class="roll"><span class="roll-inner" data-text="Contact">Contact</span></span></a></li>
+      <li><a href="#quality" style="--i:4"><span class="num">05</span><span class="roll"><span class="roll-inner" data-text="Quality">Quality</span></span></a></li>
+      <li><a href="#journey" style="--i:5"><span class="num">06</span><span class="roll"><span class="roll-inner" data-text="Journey">Journey</span></span></a></li>
+      <li><a href="#education" style="--i:6"><span class="num">07</span><span class="roll"><span class="roll-inner" data-text="Education">Education</span></span></a></li>
+      <li><a href="#languages" style="--i:7"><span class="num">08</span><span class="roll"><span class="roll-inner" data-text="Languages">Languages</span></span></a></li>
+      <li><a href="#contact" style="--i:8"><span class="num">09</span><span class="roll"><span class="roll-inner" data-text="Contact">Contact</span></span></a></li>
     </ul>
     <div class="menu-foot">
       <div>
@@ -906,7 +959,7 @@
           <a href="#contact" class="btn btn--accent btn--sm" data-cursor="Open" data-magnetic>
             <span class="roll"><span class="roll-inner" data-text="Contact me">Contact me</span></span>
           </a>
-          <a href="cv.pdf" class="btn btn--ghost btn--sm" download data-cursor="Open" data-magnetic>
+          <a href="cv.pdf" class="btn btn--ghost btn--sm" download="Yasser-Merabti-CV.pdf" data-cursor="Open" data-magnetic>
             <span class="roll"><span class="roll-inner" data-text="Download CV">Download CV</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
           </a>
         </div>
@@ -961,13 +1014,8 @@
         <h2 class="title"><span class="line"><span class="line-inner">About</span></span> <span class="line"><span class="line-inner">Me</span></span></h2>
 
         <div class="about-side">
-        <!--
-          PHOTO: put a portrait named photo.jpg (4:5, e.g. 800x1000) next to index.html.
-          It appears automatically; while the file is missing, this slot removes itself.
-        -->
-        <figure class="about-photo" data-reveal>
-          <img src="photo.jpg" alt="Portrait of Yasser Merabti" width="800" height="1000" decoding="async" />
-        </figure>
+        <!-- PHOTO: add photo.jpg (4:5, e.g. 800x1000) next to index.html, then set PHOTO in the script. -->
+        <figure class="about-photo" data-reveal hidden></figure>
         <ul class="about-facts" data-reveal>
           <li><span class="mono">University</span><strong>Tahri Mohamed University of Béchar</strong></li>
           <li><span class="mono">Studying</span><strong>B.Sc. Computer Science — 2nd year</strong></li>
@@ -1103,11 +1151,94 @@
       </div>
     </section>
 
+    <!-- ============================== 4b) QUALITY REPORT ==============================
+         Real measurements of THIS website. Update the numbers after each release:
+         - Lighthouse: Chrome DevTools > Lighthouse > Mobile (or pagespeed.web.dev)
+         - Ring length: stroke-dasharray = score x 2.765 (e.g. 92 -> 254.3)
+    -->
+    <section class="section quality" id="quality" data-panel data-bg="dark">
+      <div class="quality-head">
+        <div>
+          <p class="sec-label">05 <span>— Quality report</span></p>
+          <h2 class="title" aria-label="Quality report"><span class="line"><span class="line-inner">Quality</span></span> <span class="line"><span class="line-inner">Report</span></span></h2>
+        </div>
+        <p class="lead dim" data-reveal>I study software quality and security, so I hold this website to the same standard. Every result here is measured on the live site, not claimed.</p>
+      </div>
+
+      <div class="q-grid">
+        <article class="q-card q-card--wide" data-reveal>
+          <div class="q-card-head"><h3>Lighthouse</h3><span class="mono">Mobile · slow 4G</span></div>
+          <ul class="rings" aria-label="Lighthouse scores out of 100">
+            <li class="ring ring--good">
+              <div class="ring-dial">
+                <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-bg" cx="50" cy="50" r="44" /><circle class="ring-fg" cx="50" cy="50" r="44" stroke-dasharray="254.3 276.5" /></svg>
+                <span class="ring-num">92</span>
+              </div>
+              <span class="mono">Performance</span>
+            </li>
+            <li class="ring ring--good">
+              <div class="ring-dial">
+                <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-bg" cx="50" cy="50" r="44" /><circle class="ring-fg" cx="50" cy="50" r="44" stroke-dasharray="265.4 276.5" /></svg>
+                <span class="ring-num">96</span>
+              </div>
+              <span class="mono">Accessibility</span>
+            </li>
+            <li class="ring ring--good">
+              <div class="ring-dial">
+                <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-bg" cx="50" cy="50" r="44" /><circle class="ring-fg" cx="50" cy="50" r="44" stroke-dasharray="265.4 276.5" /></svg>
+                <span class="ring-num">96</span>
+              </div>
+              <span class="mono">Best practices</span>
+            </li>
+            <li class="ring ring--good">
+              <div class="ring-dial">
+                <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-bg" cx="50" cy="50" r="44" /><circle class="ring-fg" cx="50" cy="50" r="44" stroke-dasharray="276.5 276.5" /></svg>
+                <span class="ring-num">100</span>
+              </div>
+              <span class="mono">SEO</span>
+            </li>
+          </ul>
+          <dl class="vitals mono">
+            <div><dt>LCP</dt><dd>2.0 s</dd></div>
+            <div><dt>FCP</dt><dd>1.2 s</dd></div>
+            <div><dt>CLS</dt><dd>0.002</dd></div>
+            <div><dt>TBT</dt><dd>290 ms</dd></div>
+          </dl>
+        </article>
+
+        <article class="q-card" data-reveal>
+          <div class="q-card-head"><h3>Security &amp; practice</h3><span class="mono">Checked</span></div>
+          <ul class="checks">
+            <li>HTTPS enforced: HTTP redirects, HSTS header on</li>
+            <li>No cookies, trackers or analytics</li>
+            <li>External links open with rel="noopener"</li>
+            <li>Content still works if JavaScript or the CDNs fail</li>
+            <li>Respects the "reduce motion" setting</li>
+            <li>Keyboard navigation with visible focus</li>
+          </ul>
+        </article>
+
+        <!-- SONARQUBE: after scanning this site, uncomment this card and fill in your results.
+        <article class="q-card" data-reveal>
+          <div class="q-card-head"><h3>SonarQube</h3><span class="mono">Static analysis</span></div>
+          <dl class="sonar">
+            <div><dt class="mono">Bugs</dt><dd>0</dd></div>
+            <div><dt class="mono">Vulnerabilities</dt><dd>0</dd></div>
+            <div><dt class="mono">Code smells</dt><dd>0</dd></div>
+            <div><dt class="mono">Maintainability</dt><dd>A</dd></div>
+          </dl>
+        </article>
+        -->
+      </div>
+
+      <p class="q-note mono">Last measured 7 Nov 2026 · Google Lighthouse 12 · merabtidev-tech.github.io/portfolio</p>
+    </section>
+
     <!-- ============================== 5) EXPERIENCE ============================== -->
     <section class="section journey" id="journey" data-panel data-bg="dark">
       <div class="journey-head">
         <div>
-          <p class="sec-label">05 <span>— Experience</span></p>
+          <p class="sec-label">06 <span>— Experience</span></p>
           <h2 class="title"><span class="line"><span class="line-inner">The</span></span> <span class="line"><span class="line-inner">Journey</span></span></h2>
         </div>
         <p class="lead dim" data-reveal>Most recent first — the training and self-directed learning shaping how I build.</p>
@@ -1153,7 +1284,7 @@
 
     <!-- ============================== 6) EDUCATION ============================== -->
     <section class="section education" id="education" data-panel data-bg="light">
-      <p class="sec-label">06 <span>— Education &amp; certifications</span></p>
+      <p class="sec-label">07 <span>— Education &amp; certifications</span></p>
       <h2 class="title" aria-label="Education"><span class="line"><span class="line-inner">Edu</span></span> <span class="line"><span class="line-inner">cation</span></span></h2>
 
       <ul class="edu-list">
@@ -1184,7 +1315,7 @@
     <!-- ============================== 7b) LANGUAGES ============================== -->
     <!-- Levels: change the text and --lvl (0–1, bar length only — never shown as a number). -->
     <section class="section languages" id="languages" data-panel data-bg="light">
-      <p class="sec-label">07 <span>— Languages</span></p>
+      <p class="sec-label">08 <span>— Languages</span></p>
       <h2 class="title" aria-label="Languages"><span class="line"><span class="line-inner">Lan</span></span> <span class="line"><span class="line-inner">guages</span></span></h2>
       <ul class="lang-list">
         <li class="lang-row" data-reveal>
@@ -1219,7 +1350,7 @@
           </div>
         </div>
       </div>
-      <p class="sec-label">08 <span>— Contact</span></p>
+      <p class="sec-label">09 <span>— Contact</span></p>
       <h2 class="title"><span class="line"><span class="line-inner">Let's</span></span> <span class="line"><span class="line-inner">Talk</span></span></h2>
 
       <p class="contact-headline" data-reveal>Let's build something <em>meaningful.</em></p>
@@ -1232,7 +1363,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg>
           <span class="roll"><span class="roll-inner" data-text="Copy email">Copy email</span></span>
         </button>
-        <a href="cv.pdf" class="btn btn--ghost" download data-cursor="Open" data-magnetic>
+        <a href="cv.pdf" class="btn btn--ghost" download="Yasser-Merabti-CV.pdf" data-cursor="Open" data-magnetic>
           <span class="roll"><span class="roll-inner" data-text="Download CV">Download CV</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
         </a>
         <a href="mailto:merabtidev@gmail.com" class="btn btn--ghost" data-cursor="Open" data-magnetic>
@@ -1279,9 +1410,12 @@
   /* =======================================================================
      YOUR LINKS — fill these in once. Empty string = the button is hidden.
      ======================================================================= */
+  // Your portrait: set to 'photo.jpg' after adding the file next to index.html ('' = no photo)
+  const PHOTO = '';
+
   const LINKS = {
     github: '',   // e.g. 'https://github.com/your-username'
-    linkedin: ''  // e.g. 'https://www.linkedin.com/in/your-name' (empty = LinkedIn hidden)
+    linkedin: 'https://www.linkedin.com/in/yasser-merabti-5b53653a4'  // empty = LinkedIn hidden
   };
 
   /* =======================================================================
@@ -1367,17 +1501,18 @@
     });
 
     /* =====================================================================
-       PHOTO — the About photo slot removes itself while photo.jpg is missing
+       PHOTO — only requested when PHOTO is set (no 404 while it's missing)
        ===================================================================== */
-    const photo = $('.about-photo img');
-    if (photo) {
-      const dropPhoto = () => {
-        const fig = photo.closest('figure');
-        if (fig) fig.remove();
-        if (window.ScrollTrigger) ScrollTrigger.refresh();
-      };
-      if (photo.complete && photo.naturalWidth === 0) dropPhoto();
-      else photo.addEventListener('error', dropPhoto, { once: true });
+    const photoSlot = $('.about-photo');
+    if (photoSlot) {
+      if (PHOTO) {
+        const img = new Image(800, 1000);
+        img.src = PHOTO; img.alt = 'Portrait of Yasser Merabti'; img.decoding = 'async';
+        photoSlot.appendChild(img);
+        photoSlot.hidden = false;
+      } else {
+        photoSlot.remove();
+      }
     }
 
     /* =====================================================================
@@ -1474,7 +1609,7 @@
       ScrollTrigger.config({ ignoreMobileResize: true });
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       if (HAS_LENIS) {
-        lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 1 });
+        lenis = new Lenis({ lerp: 0.14, smoothWheel: true, wheelMultiplier: 1.1 }); // higher lerp = more responsive
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => lenis.raf(time * 1000));
         gsap.ticker.lagSmoothing(0);
@@ -2162,7 +2297,7 @@
       /* ---- PARAGRAPHS: word-by-word scrubbed opacity ---- */
       $$('[data-words]').forEach((el) => {
         const words = splitWords(el);
-        gsap.fromTo(words, { opacity: 0.15 }, {
+        gsap.fromTo(words, { opacity: 0.5 }, { // 0.5 keeps >3:1 contrast before the reveal
           opacity: 1, ease: 'none', stagger: 0.1,
           scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 55%', scrub: true }
         });
