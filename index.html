@@ -248,33 +248,36 @@
     .cursor-dot, .cursor-ring {
       position: fixed; top: 0; left: 0; z-index: var(--z-cursor); pointer-events: none;
       will-change: transform;
+      /* White + "difference" = always the opposite of what's underneath:
+         white on dark, black on light, dark over lime buttons */
+      mix-blend-mode: difference;
     }
     .cursor-dot > i, .cursor-ring > .cursor-ring-inner { opacity: 0; }
     .cursor.is-visible .cursor-dot > i, .cursor.is-visible .cursor-ring > .cursor-ring-inner { opacity: 1; }
     .cursor-dot { width: 8px; height: 8px; }
     .cursor-dot i {
-      display: block; width: 100%; height: 100%; border-radius: 50%; background: var(--accent);
+      display: block; width: 100%; height: 100%; border-radius: 50%; background: #fff;
       transition: transform .35s var(--ease-out), background-color .3s, opacity .3s;
     }
     .cursor-ring { width: 96px; height: 96px; }
     .cursor-ring-inner {
       width: 100%; height: 100%; border-radius: 50%; display: grid; place-items: center;
-      border: 2.4px solid var(--accent); transform: scale(.4);
+      border: 2.4px solid #fff; transform: scale(.4);
       transition: transform .5s var(--ease-out), background-color .35s, border-color .35s, opacity .3s;
     }
     .cursor-label {
       font-family: var(--font-mono); font-size: .8rem; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; color: var(--ink); opacity: 0; transition: opacity .25s;
+      text-transform: uppercase; color: var(--paper); opacity: 0; transition: opacity .25s;
     }
-    html[data-theme="light"] .cursor-dot i { background: var(--ink); }
-    html[data-theme="light"] .cursor-ring-inner { border-color: var(--ink); }
-    .cursor.is-hover .cursor-ring-inner { transform: scale(.62); background: rgba(212, 255, 58, .14); }
-    .cursor.has-label .cursor-ring-inner { transform: scale(1); background: var(--accent); border-color: var(--accent); }
+    .cursor.is-hover .cursor-ring-inner { transform: scale(.62); }
+    /* Label pill ("View", "Open", "Copy"): solid dark with light text, no blending */
+    .cursor.has-label .cursor-ring { mix-blend-mode: normal; }
+    .cursor.has-label .cursor-ring-inner { transform: scale(1); background: var(--ink); border-color: rgba(236, 238, 230, .35); }
     .cursor.has-label .cursor-label { opacity: 1; }
     .cursor.has-label .cursor-dot i { transform: scale(0); }
     .cursor.is-down .cursor-dot i { transform: scale(.5); }
     .cursor.in-hero .cursor-ring > .cursor-ring-inner { opacity: 0; }
-    .cursor.in-hero .cursor-dot i { background: var(--ink); transform: scale(1.4); }
+    .cursor.in-hero .cursor-dot i { transform: scale(1.4); }
 
     /* =====================================================================
        NAV
@@ -475,7 +478,7 @@
       background:
         linear-gradient(rgba(16,24,19,.07) 1px, transparent 1px) 0 0 / 32px 32px,
         linear-gradient(90deg, rgba(16,24,19,.07) 1px, transparent 1px) 0 0 / 32px 32px,
-        var(--accent);
+        var(--paper);
       color: var(--ink);
       --x: 50%; --y: 50%; --r: 0px;
       clip-path: circle(var(--r) at var(--x) var(--y));
@@ -2007,7 +2010,8 @@
           tx = mouse.x - rect.left;
           ty = mouse.y - rect.top;
           const inside = mouse.seen && mouse.inside && tx >= 0 && ty >= 0 && tx <= rect.width && ty <= rect.height;
-          tr = heroReady && inside && !zooming && !isMenuOpen() ? 110 : 0;
+          // shrink away over buttons/links so you always see what you're clicking
+          tr = heroReady && inside && !zooming && !isMenuOpen() && !hoverInteractive ? 110 : 0;
         }
         const k = 1 - Math.pow(1 - 0.15, dt);
         st.x = lerp(st.x, tx, k);
