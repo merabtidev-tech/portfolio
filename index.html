@@ -1430,6 +1430,18 @@
      ======================================================================= */
   const PROJECTS = [
     {
+      title: 'JavaCraft 3D',
+      category: 'Game dev · Java',
+      problem: 'My second-year Java TP was a mini-Minecraft played in the console on a 2D grid. I wanted to see how far the same rules could go in real 3D without rewriting them.',
+      built: 'A voxel game on jMonkeyEngine in three phases: turn-based 3D, then real-time first person, then a 128x64x128 world with chunk meshing, Perlin terrain, generated textures, physics and A* zombies. Game rules live in an engine-free core covered by 125 JUnit tests.',
+      tech: ['Java 21', 'jMonkeyEngine 3', 'Gradle', 'JUnit 5'],
+      learned: 'Keeping game rules separate from rendering so they can be tested without a window, and how chunk meshing, noise terrain and A* pathfinding work.',
+      github: '',
+      demo: '',
+      initials: 'JC',
+      snippet: 'facesVisibles(monde, cx, cy, cz)  // 1 block = 6 faces'
+    },
+    {
       title: 'Code Quality Analysis with SonarQube',
       category: 'Software Quality & Security',
       problem: 'Bugs, vulnerabilities and messy code are hard to spot by reading code manually.',
