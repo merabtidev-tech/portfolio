@@ -1425,6 +1425,8 @@
      ADD NEW PROJECTS HERE
      One object per project. Cards render in this order.
      Leave github / demo empty ('') to hide that button.
+     Optional: image (a file next to index.html) + imageAlt replace the
+     placeholder art with a real screenshot.
      With 4 or more projects, desktop switches to the pinned horizontal scroll;
      with fewer, the cards show as a 2-column grid.
      ======================================================================= */
@@ -1439,7 +1441,9 @@
       github: '',
       demo: '',
       initials: 'JC',
-      snippet: 'facesVisibles(monde, cx, cy, cz)  // 1 block = 6 faces'
+      snippet: 'facesVisibles(monde, cx, cy, cz)  // 1 block = 6 faces',
+      image: 'javacraft-3d.webp',
+      imageAlt: 'JavaCraft 3D: a voxel landscape with grass hills, trees and two pools of lava'
     },
     {
       title: 'Code Quality Analysis with SonarQube',
@@ -1557,14 +1561,20 @@
       const num = String(i + 1).padStart(2, '0');
       const initials = p.initials || p.title.split(/\s+/).filter((w) => /^[A-Za-z]/.test(w)).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
       const links = linkBtn(p.github, 'GitHub') + linkBtn(p.demo, 'Live demo');
-      return `
-        <article class="card" data-cursor="View" data-reveal>
-          <div class="card-media">
-            <div class="card-art" aria-hidden="true">
+      // A real screenshot when the project has one, otherwise the placeholder art
+      const art = p.image
+        ? `<div class="card-art">
+              <img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.title + ' screenshot')}" loading="lazy" decoding="async">
+            </div>`
+        : `<div class="card-art" aria-hidden="true">
               <span class="card-initials">${esc(initials)}</span>
               <span class="card-bignum">${num}</span>
               ${p.snippet ? `<span class="card-snippet">${esc(p.snippet)}</span>` : ''}
-            </div>
+            </div>`;
+      return `
+        <article class="card" data-cursor="View" data-reveal>
+          <div class="card-media">
+            ${art}
           </div>
           <div class="card-body">
             <div class="card-head"><span>Project ${num}</span><span>${esc(p.category)}</span></div>
