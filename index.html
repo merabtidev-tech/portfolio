@@ -634,18 +634,43 @@
     }
 
     /* =====================================================================
-       NOW LEARNING
+       THE LAB (experiments)
        ===================================================================== */
     .learning { --pt: clamp(4rem, 8vw, 7rem); }
     .learn-list { margin-top: clamp(2.5rem, 5vw, 4rem); }
-    .learn-row {
-      display: grid; grid-template-columns: auto minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 1rem 2rem; align-items: center;
-      padding: 1.5rem 0; border-top: 1px solid rgba(236, 238, 230, .14);
-    }
+    .learn-row { border-top: 1px solid rgba(236, 238, 230, .14); }
     .learn-row:last-child { border-bottom: 1px solid rgba(236, 238, 230, .14); }
+    .learn-toggle {
+      width: 100%; padding: 1.5rem 0; background: none; border: 0; color: inherit; text-align: left; cursor: pointer;
+      display: grid; grid-template-columns: auto auto minmax(0, 1.2fr) minmax(0, 1fr) auto auto; gap: .5rem 1.25rem; align-items: center;
+      font: inherit;
+    }
+    .exp-id { font-size: .72rem; letter-spacing: .08em; opacity: .6; }
     .learn-row h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.8rem); line-height: 1; }
-    .learn-row p { opacity: .75; }
-    .learn-status { color: var(--accent); }
+    .learn-q { opacity: .75; font-size: .98rem; line-height: 1.45; }
+    .learn-status { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .exp-more { font-family: var(--font-mono); font-size: .7rem; opacity: .55; transition: transform .4s var(--ease-out), opacity .3s; }
+    .learn-row:hover .exp-more, .learn-toggle:focus-visible .exp-more { opacity: 1; }
+    .learn-row.is-open .exp-more { transform: rotate(45deg); opacity: 1; color: var(--accent); }
+    .exp-details {
+      display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease-out);
+    }
+    .learn-row:hover .exp-details, .learn-row:focus-within .exp-details, .learn-row.is-open .exp-details { grid-template-rows: 1fr; }
+    .exp-details-inner { overflow: hidden; }
+    .exp-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem;
+      padding: .25rem 0 1.5rem calc(26px + 4.8rem);
+    }
+    .exp-field { font-size: .9rem; line-height: 1.5; }
+    .exp-field dt { font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: .25rem; }
+    .exp-field a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 899px) {
+      .learn-toggle { grid-template-columns: auto auto 1fr auto; gap: .3rem .8rem; }
+      .learn-q { grid-column: 2 / -1; }
+      .learn-status { grid-column: 2 / 3; }
+      .exp-more { grid-column: 4; grid-row: 1; justify-self: end; }
+      .exp-grid { grid-template-columns: 1fr; padding-left: calc(26px + .8rem); }
+    }
 
     /* =====================================================================
        PROJECT CARDS (case-study format, rendered from the PROJECTS array)
@@ -837,8 +862,7 @@
       .hero-line--2 .split { -webkit-text-stroke-width: 2.5px; }
       .about-side { grid-column: 1 / -1; order: 3; }
       .about-photo { max-width: 280px; }
-      .learn-row { grid-template-columns: auto 1fr; }
-      .learn-row p, .learn-status { grid-column: 2; }
+      .learn-q { grid-column: 2 / -1; }
       .scroll-cue { flex-direction: row; }
       .about-facts, .about-text { grid-column: 1 / -1; }
       .about-facts { margin-top: 0; }
@@ -916,7 +940,7 @@
     <ul class="menu-links">
       <li><a href="#about" style="--i:0"><span class="num">01</span><span class="roll"><span class="roll-inner" data-text="About">About</span></span></a></li>
       <li><a href="#skills" style="--i:1"><span class="num">02</span><span class="roll"><span class="roll-inner" data-text="Stack">Stack</span></span></a></li>
-      <li><a href="#learning" style="--i:2"><span class="num">03</span><span class="roll"><span class="roll-inner" data-text="Learning">Learning</span></span></a></li>
+      <li><a href="#learning" style="--i:2"><span class="num">03</span><span class="roll"><span class="roll-inner" data-text="Lab">Lab</span></span></a></li>
       <li><a href="#work" style="--i:3"><span class="num">04</span><span class="roll"><span class="roll-inner" data-text="Work">Work</span></span></a></li>
       <li><a href="#quality" style="--i:4"><span class="num">05</span><span class="roll"><span class="roll-inner" data-text="Quality">Quality</span></span></a></li>
       <li><a href="#journey" style="--i:5"><span class="num">06</span><span class="roll"><span class="roll-inner" data-text="Journey">Journey</span></span></a></li>
@@ -1098,30 +1122,72 @@
       </div>
     </section>
 
-    <!-- ============================== 3b) NOW LEARNING ============================== -->
+    <!-- ============================== 3b) THE LAB ============================== -->
     <section class="section learning" id="learning" data-panel data-bg="dark">
       <div class="learning-head">
-        <p class="sec-label">03 <span>— Currently learning</span></p>
-        <h2 class="title"><span class="line"><span class="line-inner">Now</span></span> <span class="line"><span class="line-inner">Learning</span></span></h2>
+        <p class="sec-label">03 <span>— Lab</span></p>
+        <h2 class="title"><span class="line"><span class="line-inner">The</span></span> <span class="line"><span class="line-inner">Lab</span></span></h2>
       </div>
       <ul class="learn-list">
         <li class="learn-row" data-reveal>
-          <span class="pulse" aria-hidden="true"></span>
-          <h3>React</h3>
-          <p>Building interactive web apps</p>
-          <span class="mono learn-status">In progress</span>
+          <button class="learn-toggle" type="button" aria-expanded="false">
+            <span class="pulse" aria-hidden="true"></span>
+            <span class="mono exp-id">EXP-001</span>
+            <h3>React</h3>
+            <p class="learn-q">Can I build a fully interactive app without a template?</p>
+            <span class="mono learn-status">Running</span>
+            <span class="exp-more" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-details">
+            <div class="exp-details-inner">
+              <dl class="exp-grid">
+                <div class="exp-field"><dt>Hypothesis</dt><dd>I can ship a small, stateful UI from scratch without leaning on a starter template.</dd></div>
+                <div class="exp-field"><dt>What I tried</dt><dd>Building components, managing state and effects, and wiring a simple interactive flow by hand.</dd></div>
+                <div class="exp-field"><dt>Result</dt><dd>Core interactions working; refining component structure and state patterns.</dd></div>
+                <div class="exp-field"><dt>Link</dt><dd><a href="#" target="_blank" rel="noopener">Repo / demo (soon)</a></dd></div>
+              </dl>
+            </div>
+          </div>
         </li>
         <li class="learn-row" data-reveal>
-          <span class="pulse" aria-hidden="true"></span>
-          <h3>Linux &amp; the command line</h3>
-          <p>Everyday developer workflow</p>
-          <span class="mono learn-status">In progress</span>
+          <button class="learn-toggle" type="button" aria-expanded="false">
+            <span class="pulse" aria-hidden="true"></span>
+            <span class="mono exp-id">EXP-002</span>
+            <h3>Linux &amp; the command line</h3>
+            <p class="learn-q">Can I run my whole dev workflow from the terminal?</p>
+            <span class="mono learn-status">Testing</span>
+            <span class="exp-more" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-details">
+            <div class="exp-details-inner">
+              <dl class="exp-grid">
+                <div class="exp-field"><dt>Hypothesis</dt><dd>Most daily dev tasks can be faster and more repeatable from the shell.</dd></div>
+                <div class="exp-field"><dt>What I tried</dt><dd>Navigation, file ops, git, scripting basics, and chaining commands into a daily workflow.</dd></div>
+                <div class="exp-field"><dt>Result</dt><dd>Comfortable with core commands; building muscle memory for pipes and small scripts.</dd></div>
+                <div class="exp-field"><dt>Link</dt><dd><a href="#" target="_blank" rel="noopener">Notes / scripts (soon)</a></dd></div>
+              </dl>
+            </div>
+          </div>
         </li>
         <li class="learn-row" data-reveal>
-          <span class="pulse" aria-hidden="true"></span>
-          <h3>Networking fundamentals</h3>
-          <p>How networks and security connect</p>
-          <span class="mono learn-status">In progress</span>
+          <button class="learn-toggle" type="button" aria-expanded="false">
+            <span class="pulse" aria-hidden="true"></span>
+            <span class="mono exp-id">EXP-003</span>
+            <h3>Networking fundamentals</h3>
+            <p class="learn-q">What actually happens when two machines talk?</p>
+            <span class="mono learn-status">Learned</span>
+            <span class="exp-more" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-details">
+            <div class="exp-details-inner">
+              <dl class="exp-grid">
+                <div class="exp-field"><dt>Hypothesis</dt><dd>Tracing real traffic will make protocols and security boundaries concrete.</dd></div>
+                <div class="exp-field"><dt>What I tried</dt><dd>Inspecting requests, DNS/HTTP basics, ports, and how data moves across a local network.</dd></div>
+                <div class="exp-field"><dt>Result</dt><dd>Clearer mental model of layers and handshakes; applying it to debugging and security.</dd></div>
+                <div class="exp-field"><dt>Link</dt><dd><a href="#" target="_blank" rel="noopener">Write-up (soon)</a></dd></div>
+              </dl>
+            </div>
+          </div>
         </li>
       </ul>
     </section>
@@ -1438,12 +1504,24 @@
       built: 'A voxel game on jMonkeyEngine in three phases: turn-based 3D, then real-time first person, then a 128x64x128 world with chunk meshing, Perlin terrain, generated textures, physics and A* zombies. Game rules live in an engine-free core covered by 125 JUnit tests.',
       tech: ['Java 21', 'jMonkeyEngine 3', 'Gradle', 'JUnit 5'],
       learned: 'Keeping game rules separate from rendering so they can be tested without a window, and how chunk meshing, noise terrain and A* pathfinding work.',
-      github: '',
+      github: 'https://github.com/merabtidev-tech/javacraft-3d',
       demo: '',
       initials: 'JC',
       snippet: 'facesVisibles(monde, cx, cy, cz)  // 1 block = 6 faces',
       image: 'javacraft-3d.webp',
       imageAlt: 'JavaCraft 3D: a voxel landscape with grass hills, trees and two pools of lava'
+    },
+    {
+      title: 'Password Check',
+      category: 'Security · Web tool',
+      problem: 'People reuse weak or leaked passwords, and most online checkers ask you to send your password to a server you can\'t verify.',
+      built: 'A browser-only tool that estimates password strength (dictionary, keyboard-pattern and date detection) and checks known data breaches with k-anonymity: only the first 5 characters of a SHA-1 hash ever leave the device.',
+      tech: ['JavaScript', 'Web Crypto API', 'HIBP API', 'CSP'],
+      learned: 'How k-anonymity protects privacy, how attackers really guess passwords, and how to lock a page down with a strict Content Security Policy.',
+      github: 'https://github.com/merabtidev-tech/portfolio/tree/main/password-check',
+      demo: 'password-check/',
+      initials: 'PW',
+      snippet: 'GET /range/5BAA6  // 5 chars, never the password'
     },
     {
       title: 'Code Quality Analysis with SonarQube',
@@ -1517,6 +1595,17 @@
       const url = (LINKS[el.dataset.link] || '').trim();
       if (url) { el.href = url; el.hidden = false; }
       else el.remove();
+    });
+
+    /* =====================================================================
+       THE LAB — expand experiment details on click/tap
+       ===================================================================== */
+    $$('.learn-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('.learn-row');
+        const open = row.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
     });
 
     /* =====================================================================
